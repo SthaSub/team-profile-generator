@@ -115,6 +115,7 @@ const getInfoFromUser = async () => {
             isNewMemberRequired = false;
         }
     }
+    getHtml();
 }
 
 const readHtmlFile = (filePath, employeeType) => {
