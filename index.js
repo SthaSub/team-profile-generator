@@ -42,3 +42,39 @@ let intern = {
     message: "Enter your School name",
     name: "name"
 }
+
+
+let moreInfo;
+
+const getQuestionAndAnswer = async (empolyee) => {
+    return new Promise((resolved, rejected) => {
+        inquirer.prompt(questions).then((answers) => {
+            switch (answers.role) {
+                case "Manager":
+                    getEmployeeRoleInfo(answers.role).then(answer => {
+                        moreInfo = answer.name;
+                        resolved(empolyee.push(new Manager(answers.id, answers.name, answers.email, moreInfo)));
+                    });
+                    break;
+                case "Engineer":
+                    getEmployeeRoleInfo(answers.role).then(answer => {
+                        moreInfo = answer.name;
+                        resolved(empolyee.push(new Engineer(answers.id, answers.name, answers.email, moreInfo)));
+                    })
+
+                    break;
+                case "Intern":
+                    getEmployeeRoleInfo(answers.role).then(answer => {
+                        moreInfo = answer.name;
+                        resolved(empolyee.push(new Intern(answers.id, answers.name, answers.email, moreInfo)));
+                    });
+                    break;
+            }
+
+        }).catch((err) => {
+            console.log(`${err} something went wrong`);
+        });
+    });
+}
+
+
