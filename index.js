@@ -142,6 +142,31 @@ const readHtmlFile = (filePath, employeeType) => {
     return;
 }
 
+
+const getHtml =  () => {
+    let mergeHtml = ""
+    let htmlofEmployee = "";
+    for (const key in empolyee) {
+        if (empolyee[key].getRole() == "Manager") {
+            htmlofEmployee = readHtmlFile("./src/manager.html", empolyee[key]);
+        } else if (empolyee[key].getRole() == "Intern") {
+            htmlofEmployee = readHtmlFile("./src/intern.html", empolyee[key]);
+        } else if (empolyee[key].getRole() == "Engineer") {
+            htmlofEmployee = readHtmlFile("./src/engineer.html", empolyee[key]);
+        };
+        mergeHtml += htmlofEmployee;
+    }
+
+    let teamHtml;
+    teamHtml = fs.readFileSync(teamFile, "utf8");
+    let finalTeamHtml = teamHtml.replace(/<!-- employee here -->/g, mergeHtml);
+    
+    fs.writeFileSync(outputFile,finalTeamHtml,(err)=>{
+        err?console.log(err):console.log("successfully added");
+    });
+
+}
+
 async function init() {
     getInfoFromUser();
 };
