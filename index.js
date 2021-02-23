@@ -77,6 +77,16 @@ const getQuestionAndAnswer = async (empolyee) => {
     });
 }
 
+function getEmployeeRoleInfo(role) {
+    if (role == "Manager") {
+        return inquirer.prompt([manager]);
+    } else if (role == "Engineer") {
+        return inquirer.prompt([engineer]);
+    } else {
+        return inquirer.prompt([intern]);
+    }
+};
+
 let empolyee = [];
 const getInfoFromUser = async () => {
     let isNewMemberRequired = true;
