@@ -87,6 +87,22 @@ function getEmployeeRoleInfo(role) {
     }
 };
 
+const promptAdditionalInfo = async () => {
+    return new Promise((resolved, rejected) => {
+        inquirer.prompt([
+            {
+                type: "list",
+                message: "Which type of team member would you like to add?",
+                name: "member",
+                choices: ["Engineer", "Intern", "I don't want to add anymore team members"]
+            }
+        ]).then(getAns => {
+            resolved(getAns);
+        });
+    })
+};
+
+
 let empolyee = [];
 const getInfoFromUser = async () => {
     let isNewMemberRequired = true;
