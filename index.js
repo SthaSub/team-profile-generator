@@ -117,6 +117,31 @@ const getInfoFromUser = async () => {
     }
 }
 
+const readHtmlFile = (filePath, employeeType) => {
+    let employeeHtml = fs.readFileSync(filePath, "utf8");
+    if (employeeType.getRole() == "Manager") {
+        return employeeHtml.replace(/{role}/g, employeeType.getRole())
+            .replace(/{managerID}/g, employeeType.getID())
+            .replace(/{managerID}/g, employeeType.getID())
+            .replace(/{managerName}/g, employeeType.getName())
+            .replace(/{managerEmail}/g, employeeType.getEmail())
+            .replace(/{managerOfficeNo}/g, employeeType.getOfficerNumber());
+    } else if (employeeType.getRole() == "Engineer") {
+        return employeeHtml.replace(/{role}/g, employeeType.getRole())
+            .replace(/{engineerID}/g, employeeType.getID())
+            .replace(/{engineerName}/g, employeeType.getName())
+            .replace(/{engineerEmail}/g, employeeType.getEmail())
+            .replace(/{engineerGithub}/g, employeeType.getGitHub());
+    } else if (employeeType.getRole() == "Intern") {
+        return employeeHtml.replace(/{role}/g, employeeType.getRole())
+            .replace(/{internID}/g, employeeType.getID())
+            .replace(/{internName}/g, employeeType.getName())
+            .replace(/{internEmail}/g, employeeType.getEmail())
+            .replace(/{internSchool}/g, employeeType.getSchool());
+    }
+    return;
+}
+
 async function init() {
     getInfoFromUser();
 };
