@@ -101,3 +101,8 @@ const getInfoFromUser = async () => {
     }
 }
 
+async function init() {
+    getInfoFromUser();
+};
+
+init();
