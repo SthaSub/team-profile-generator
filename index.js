@@ -162,7 +162,7 @@ const getHtml =  () => {
     teamHtml = fs.readFileSync(teamFile, "utf8");
     let finalTeamHtml = teamHtml.replace(/<!-- employee here -->/g, mergeHtml);
     
-    fs.writeFileSync(outputFile,finalTeamHtml,(err)=>{
+    fs.writeFile(outputFile,finalTeamHtml,(err)=>{
         err?console.log(err):console.log("successfully added");
     });
 
