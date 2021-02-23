@@ -28,3 +28,17 @@ const questions = [
         name: "role"
     }];
 
+let engineer = {
+    message: "Enter your github username",
+    name: "name"
+}
+
+let manager = {
+    message: "Enter your officeNumber",
+    name: "name"
+}
+
+let intern = {
+    message: "Enter your School name",
+    name: "name"
+}
