@@ -77,4 +77,17 @@ const getQuestionAndAnswer = async (empolyee) => {
     });
 }
 
+let empolyee = [];
+const getInfoFromUser = async () => {
+    let isNewMemberRequired = true;
+    while (isNewMemberRequired) {
+        await getQuestionAndAnswer(empolyee);
+        let option = await promptAdditionalInfo().then(decision => {
+            return decision;
+        });
+        if (option.member == "I don't want to add anymore team members") {
+            isNewMemberRequired = false;
+        }
+    }
+}
 
