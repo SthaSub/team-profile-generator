@@ -11,6 +11,7 @@
   - [Contribution Guidelines](#contribution-guidelines)
   - [Test Procedure](#test-procedure)
   - [Screenshot](#screenshot)
+  - [Deployed](#deployed)
   - [Questions](#questions)
   
   ## Description
@@ -32,7 +33,10 @@
      needs to run 'npm test' on terminal
 
   ## Screenshot
-  ![Application Screen](./assests/images/teamprofile.PNG)     
+  ![Application Screen](./assests/images/teamprofile.PNG)
+
+  ## Deployed
+  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://note-taker-version-1.herokuapp.com)     
   
   ## Questions
     if you have questions then please feel free to contact on these addresses,
